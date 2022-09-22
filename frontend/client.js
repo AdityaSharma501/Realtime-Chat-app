@@ -1,6 +1,3 @@
-const socket = io.connect("http://localhost:3000", {
-    transports: ["websocket"]
-  });
 
 var fname="";
 while(fname===""){
@@ -9,6 +6,10 @@ while(fname===""){
         break;
     }
 }
+const socket = io.connect("http://localhost:3000", {
+    transports: ["websocket"]
+  });
+
   //socket.emit("user-joined",fname);
 
      
