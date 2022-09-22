@@ -57,7 +57,7 @@ socket.on("check",(data)=>{
 
 form.addEventListener("submit", (e)=> {
     e.preventDefault();
-    if(meassageInput.value===""){
+    if(messageInput.value === ""){
     return ;
     }
     var li = document.createElement("li");
@@ -65,9 +65,7 @@ form.addEventListener("submit", (e)=> {
     li.innerText = messageInput.value
     ul.appendChild(li);
     socket.emit("message",{msg:messageInput.value,user:fname});
-    if(meassageInput.value===""){
-    return ;
-    }
+  
     messageInput.value = ""
     showLastChat();
 })
