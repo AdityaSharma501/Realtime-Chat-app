@@ -1,7 +1,7 @@
 
 var fname="";
 while(fname===""){
-    fname= prompt("ENter you Name to join chat");
+    fname= prompt("Enter Your Name To Join Chat");
     if(fname!==""){
         break;
     }
