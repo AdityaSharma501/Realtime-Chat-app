@@ -6,7 +6,7 @@ while(fname===""){
         break;
     }
 }
-const socket = io.connect("http://localhost:3000", {
+const socket = io.connect("https://serene-peak-19019.herokuapp.com", {
     transports: ["websocket"]
   });
 
