@@ -1,0 +1,53 @@
+//node servver which will handle socket io conneciton
+const io = require('socket.io')(8000)
+const cors = require("cors")
+
+const users={};
+
+io.on('connection',socket =>{
+    socket.on('new-user-joined',name =>{
+       console.log('new user',name)
+        users[socket.id]=name;
+        socket.brodcast.emit('user-joined')
+    });
+
+    socket.on('send',message =>{
+        socket.brodcast.emit('receive',{message,name:user[socket.id]})
+    });
+})
+
+
+
+
+
+//node servver which will handle socket io conneciton
+const express = require('express')
+const http = require('http')
+const app = express()
+
+const cors = require("cors")
+app.use(
+    cors({
+        origin:"*",
+        //transports: ['websocket', 'polling'],
+    })
+)
+const server = http.createServer(app)
+
+const io = require('socket.io')(server);
+
+const users={};
+
+io.on('connection',socket =>{
+    socket.on('new-user-joined',name =>{
+       console.log('new user',name)
+        users[socket.id]=name;
+        socket.brodcast.emit('user-joined')
+    });
+
+    socket.on('send',message =>{
+        socket.brodcast.emit('receive',{message,name:user[socket.id]})
+    });
+})
+
+server.listen(8000,console.log("server is up on port 8000"))
