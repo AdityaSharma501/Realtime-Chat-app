@@ -57,6 +57,9 @@ socket.on("check",(data)=>{
 
 form.addEventListener("submit", (e)=> {
     e.preventDefault();
+    if(meassageInput.value===""){
+    return ;
+    }
     var li = document.createElement("li");
     li.classList.add("right");
     li.innerText = messageInput.value
