@@ -1,9 +1,9 @@
 //node servver which will handle socket io conneciton
 const {Server} = require("socket.io");
 //const cors = require("cors")
-const io =new Server(3000,{
+const io =new Server(process.env.PORT || 3000,{
     cors:{
-        origin:"https://127.0.0.1:5500",
+        origin:"https://realtime-chat-app-aditya.netlify.app",
         transports: ['websocket']
     },
     
