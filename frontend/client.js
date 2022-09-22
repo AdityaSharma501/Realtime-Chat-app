@@ -65,6 +65,9 @@ form.addEventListener("submit", (e)=> {
     li.innerText = messageInput.value
     ul.appendChild(li);
     socket.emit("message",{msg:messageInput.value,user:fname});
+    if(meassageInput.value===""){
+    return ;
+    }
     messageInput.value = ""
     showLastChat();
 })
